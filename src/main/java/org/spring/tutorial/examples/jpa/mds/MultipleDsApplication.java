@@ -1,24 +1,17 @@
 package org.spring.tutorial.examples.jpa.mds;
 
-import org.spring.tutorial.examples.jpa.mds.entity.oracle.Address;
-import org.spring.tutorial.examples.jpa.mds.entity.postgres.Account;
 import org.spring.tutorial.examples.jpa.mds.entity.postgres.Customer;
 import org.spring.tutorial.examples.jpa.mds.service.RetrieveData;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.context.ApplicationContext;
 
-import java.util.ArrayList;
-import java.util.HashSet;
-import java.util.List;
-import java.util.Set;
-
 @SpringBootApplication
-public class MultipleDsEhcacheApplication {
+public class MultipleDsApplication {
 
 	public static void main(String[] args) {
 
-		ApplicationContext context =  SpringApplication.run(MultipleDsEhcacheApplication.class, args);
+		ApplicationContext context =  SpringApplication.run(MultipleDsApplication.class, args);
 		RetrieveData retrieveData = (RetrieveData) context.getBean("retrieveDataImpl");
 
 		//postgres init data
