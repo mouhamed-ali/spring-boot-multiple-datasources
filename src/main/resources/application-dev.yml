@@ -1,0 +1,26 @@
+# ORACLE DB
+oracle:
+  datasource:
+    url: jdbc:oracle:thin:@localhost:1521:xe
+    #use jdbcUrl on new spring boot versions
+    username: system
+    password: 23405444
+    driver-class-name: oracle.jdbc.driver.OracleDriver
+    #use driverClassName on new spring boot versions
+
+#POSTGRES DB
+postgres:
+  datasource:
+    url: jdbc:postgresql://localhost:5432/test
+    username: postgres
+    password: 23405444
+    driver-class-name: org.postgresql.Driver
+
+logging:
+  level:
+    .: error
+    org.springframework: INFO
+    org.spring.tutorial.examples.jpa.mds: DEBUG
+    #show hibernate requests and values , to be used if we did not user the hibernate.show_sql property
+    #org.hibernate.SQL: DEBUG
+    #org.hibernate.type: TRACE
