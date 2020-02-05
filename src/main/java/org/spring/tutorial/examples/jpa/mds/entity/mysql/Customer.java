@@ -1,6 +1,7 @@
-package org.spring.tutorial.examples.jpa.mds.entity.oracle;
+package org.spring.tutorial.examples.jpa.mds.entity.mysql;
 
 import org.spring.tutorial.examples.jpa.mds.entity.AbstractCustomer;
+
 import javax.persistence.*;
 
 @Entity

@@ -1,6 +1,6 @@
 package org.spring.tutorial.examples.jpa.mds.service;
 
-import org.spring.tutorial.examples.jpa.mds.entity.oracle.Customer;
+import org.spring.tutorial.examples.jpa.mds.entity.mysql.Customer;
 
 import java.util.List;
 

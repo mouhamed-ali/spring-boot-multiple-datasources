@@ -24,7 +24,7 @@ public class MultipleDsApplication {
 		retrieveData.savePostgresCustomer(customer);
 
 		//oracle init data
-		org.spring.tutorial.examples.jpa.mds.entity.oracle.Customer customer1 = new org.spring.tutorial.examples.jpa.mds.entity.oracle.Customer();
+		org.spring.tutorial.examples.jpa.mds.entity.mysql.Customer customer1 = new org.spring.tutorial.examples.jpa.mds.entity.mysql.Customer();
 		customer1.setId(1);
 		customer1.setFirstName("oracle_first_name");
 		customer1.setLastName("oracle_last_name");

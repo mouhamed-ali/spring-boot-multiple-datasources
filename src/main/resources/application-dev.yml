@@ -1,7 +1,7 @@
-# ORACLE DB
-oracle:
+# MYSQL DB
+mysql:
   datasource:
-    url: jdbc:oracle:thin:@localhost:1521:xe
+    url: jdbc:mysql://${MYSQL_HOST:localhost}:3306/db_example
     #use jdbcUrl on new spring boot versions
     username: system
     password: 23405444
