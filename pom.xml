@@ -4,18 +4,17 @@
 	<modelVersion>4.0.0</modelVersion>
 
 	<groupId>org.spring.tutorial</groupId>
-	<artifactId>multiple-ds-ehcache</artifactId>
+	<artifactId>spring-boot-multiple-datasources</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
 	<packaging>jar</packaging>
 
-	<name>multiple-ds-ehcache</name>
-	<description>Demo project for Spring Boot</description>
+	<name>spring-boot-multiple-datasources</name>
 
 	<parent>
 		<groupId>org.springframework.boot</groupId>
 		<artifactId>spring-boot-starter-parent</artifactId>
 		<version>1.5.10.RELEASE</version>
-		<relativePath/> <!-- lookup parent from repository -->
+		<relativePath/>
 	</parent>
 
 	<properties>
