@@ -1,19 +1,19 @@
 # MYSQL DB
 mysql:
   datasource:
-    url: jdbc:mysql://${MYSQL_HOST:localhost}:3306/db_example
+    url: jdbc:mysql://${MYSQL_HOST:localhost}:3306/db
     #use jdbcUrl on new spring boot versions
-    username: system
-    password: 23405444
-    driver-class-name: oracle.jdbc.driver.OracleDriver
+    username: user
+    password: password
+    driver-class-name: com.mysql.jdbc.Driver
     #use driverClassName on new spring boot versions
 
 #POSTGRES DB
 postgres:
   datasource:
-    url: jdbc:postgresql://localhost:5432/test
-    username: postgres
-    password: 23405444
+    url: jdbc:postgresql://${POSTGRES_HOST:localhost}:5432/db
+    username: admin
+    password: password
     driver-class-name: org.postgresql.Driver
 
 logging:

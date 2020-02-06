@@ -11,7 +11,7 @@ RUN mvn package
 FROM openjdk:8-jre-alpine
 
 # copy application JAR (with libraries inside)
-COPY --from=BUILDER /app/target/skills-referential.jar /app.jar
+COPY --from=BUILDER /app/target/spring-boot-multiple-ds.jar /app.jar
 
 # expose the spring boot default port
 EXPOSE 8080
