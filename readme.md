@@ -133,7 +133,7 @@ And to get access to the postgres db, check this url :
 
 The password is : password
 
-The you have to create a new server :
+You have to create a new server :
 
 ![pg-create-server](https://user-images.githubusercontent.com/16627692/74018974-22259880-4997-11ea-8c90-1b88f98feaa3.png)
 
@@ -172,7 +172,37 @@ $ curl -H "Content-Type: application/json" localhost:8080/api/mysql
 ```
 
 ```json
-[{"id":1,"firstName":"Hugo","lastName":"MYSQL","email":"hugo@gmail.com","phoneNumber":"00047561238","birthDate":"Nevada","address":{"id":1,"building":"Mount Eden Road","street":"445 Mount Eden Road","country":"USA","handler":{},"hibernateLazyInitializer":{}}},{"id":2,"firstName":"Jack","lastName":"MYSQL","email":"jack@example.com","phoneNumber":"0614582788","birthDate":"02231997","address":null}]
+[ 
+   { 
+      "id":1,
+      "firstName":"Hugo",
+      "lastName":"MYSQL",
+      "email":"hugo@gmail.com",
+      "phoneNumber":"00047561238",
+      "birthDate":"Nevada",
+      "address":{ 
+         "id":1,
+         "building":"Mount Eden Road",
+         "street":"445 Mount Eden Road",
+         "country":"USA",
+         "handler":{ 
+
+         },
+         "hibernateLazyInitializer":{ 
+
+         }
+      }
+   },
+   { 
+      "id":2,
+      "firstName":"Jack",
+      "lastName":"MYSQL",
+      "email":"jack@example.com",
+      "phoneNumber":"0614582788",
+      "birthDate":"02231997",
+      "address":null
+   }
+]
 ```
 
 * create a new postgres customer
@@ -194,7 +224,35 @@ $ curl localhost:8080/api/postgres
 ```
 
 ```json
-[{"id":1,"firstName":"Hugo","lastName":"POSTGRES","email":"hugo@gmail.com","phoneNumber":"00047561238","birthPlace":"Nevada","accounts":[{"id":1,"balance":200000.0,"accountName":"Hugo-POSTGRES","dateOpened":"01021991"}]},{"id":2,"firstName":"Jack","lastName":"POSTGRES","email":"jack@example.com","phoneNumber":"0614582788","birthPlace":"Kentucky","accounts":[]}]
+[ 
+   { 
+      "id":1,
+      "firstName":"Hugo",
+      "lastName":"POSTGRES",
+      "email":"hugo@gmail.com",
+      "phoneNumber":"00047561238",
+      "birthPlace":"Nevada",
+      "accounts":[ 
+         { 
+            "id":1,
+            "balance":200000.0,
+            "accountName":"Hugo-POSTGRES",
+            "dateOpened":"01021991"
+         }
+      ]
+   },
+   { 
+      "id":2,
+      "firstName":"Jack",
+      "lastName":"POSTGRES",
+      "email":"jack@example.com",
+      "phoneNumber":"0614582788",
+      "birthPlace":"Kentucky",
+      "accounts":[ 
+
+      ]
+   }
+]
 ```
 
 * check the mysql db
