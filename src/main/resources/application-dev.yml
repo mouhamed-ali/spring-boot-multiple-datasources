@@ -16,6 +16,7 @@ postgres:
     password: password
     driver-class-name: org.postgresql.Driver
 
+
 logging:
   level:
     .: error

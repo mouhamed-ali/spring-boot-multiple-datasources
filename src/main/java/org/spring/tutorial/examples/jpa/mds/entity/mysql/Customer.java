@@ -5,13 +5,14 @@ import org.spring.tutorial.examples.jpa.mds.entity.AbstractCustomer;
 import javax.persistence.*;
 
 @Entity
+@Table(name = "CUSTOMER")
 public class Customer extends AbstractCustomer {
 
     @Column(name = "birth_date")
     private String birthDate;
 
-    @OneToOne(fetch=FetchType.LAZY)
-    @JoinColumn(name="customer_id")
+    @OneToOne(fetch = FetchType.LAZY, cascade = CascadeType.ALL)
+    @JoinColumn(name = "address_id", referencedColumnName = "id")
     private Address address;
 
     public Address getAddress() {

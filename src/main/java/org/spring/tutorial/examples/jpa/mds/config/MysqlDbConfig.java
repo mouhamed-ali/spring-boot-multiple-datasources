@@ -40,7 +40,7 @@ public class MysqlDbConfig {
      */
     @ConfigurationProperties(prefix = "mysql.datasource")
     /*
-     * the Oracle properties
+     * the Mysql properties
      */
     public DataSource dataSource() {
         return DataSourceBuilder.create().build();
@@ -54,13 +54,14 @@ public class MysqlDbConfig {
         hibernateProperties.put("hibernate.hbm2ddl.auto", "create-drop");
         hibernateProperties.put("hibernate.dialect", "org.hibernate.dialect.MySQLDialect");
         hibernateProperties.put("hibernate.show_sql", "true");
-        hibernateProperties.put("hibernate.format_sql","true");
+        hibernateProperties.put("hibernate.format_sql", "true");
+        hibernateProperties.put("hibernate.hbm2ddl.import_files", "initial-db-mysql.sql");
 
         return builder
                 .dataSource(dataSource())
                 .packages("org.spring.tutorial.examples.jpa.mds.entity.mysql")
                 .properties(hibernateProperties)
-                .persistenceUnit("oraclePU")
+                .persistenceUnit("mysqlPU")
                 .build();
     }
 

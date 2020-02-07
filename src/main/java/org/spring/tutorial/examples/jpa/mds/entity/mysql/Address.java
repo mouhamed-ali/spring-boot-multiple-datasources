@@ -2,12 +2,10 @@ package org.spring.tutorial.examples.jpa.mds.entity.mysql;
 
 import org.spring.tutorial.examples.jpa.mds.entity.AbstractCustomer;
 
-import javax.persistence.Entity;
-import javax.persistence.FetchType;
-import javax.persistence.Id;
-import javax.persistence.OneToOne;
+import javax.persistence.*;
 
 @Entity
+@Table(name = "ADDRESS")
 public class Address {
 
     @Id

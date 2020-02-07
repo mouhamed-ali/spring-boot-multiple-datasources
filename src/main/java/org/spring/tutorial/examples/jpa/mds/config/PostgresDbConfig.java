@@ -11,6 +11,7 @@ import org.springframework.orm.jpa.JpaTransactionManager;
 import org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean;
 import org.springframework.transaction.PlatformTransactionManager;
 import org.springframework.transaction.annotation.EnableTransactionManagement;
+
 import javax.persistence.EntityManagerFactory;
 import javax.sql.DataSource;
 import java.util.HashMap;
@@ -41,10 +42,11 @@ public class PostgresDbConfig {
     public LocalContainerEntityManagerFactoryBean entityManagerFactory(EntityManagerFactoryBuilder builder) {
 
         Map<String, String> hibernateProperties = new HashMap<>();
-        hibernateProperties.put("hibernate.hbm2ddl.auto", "update");
+        hibernateProperties.put("hibernate.hbm2ddl.auto", "create-drop");
         hibernateProperties.put("hibernate.dialect", "org.hibernate.dialect.PostgreSQLDialect");
         hibernateProperties.put("hibernate.show_sql","true");
-        hibernateProperties.put("hibernate.format_sql","true");
+        hibernateProperties.put("hibernate.format_sql", "true");
+        hibernateProperties.put("hibernate.hbm2ddl.import_files", "initial-db-postgres.sql");
 
         return builder
                 .dataSource(dataSource())

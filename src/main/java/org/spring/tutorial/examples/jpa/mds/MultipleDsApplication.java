@@ -10,13 +10,17 @@ import org.springframework.context.ApplicationContext;
 public class MultipleDsApplication {
 
 	public static void main(String[] args) {
+		SpringApplication.run(MultipleDsApplication.class, args);
+	}
 
-		ApplicationContext context =  SpringApplication.run(MultipleDsApplication.class, args);
+	public static void mains(String[] args) {
+
+		ApplicationContext context = SpringApplication.run(MultipleDsApplication.class, args);
 		RetrieveData retrieveData = (RetrieveData) context.getBean("retrieveDataImpl");
 
 		//postgres init data
 		Customer customer = new Customer();
-		customer.setId(1);
+		customer.setId(2);
 		customer.setFirstName("postres_first_customer");
 		customer.setLastName("postgres_last_customer");
 		customer.setEmail("postgres@postgres.com");
@@ -25,7 +29,7 @@ public class MultipleDsApplication {
 
 		//oracle init data
 		org.spring.tutorial.examples.jpa.mds.entity.mysql.Customer customer1 = new org.spring.tutorial.examples.jpa.mds.entity.mysql.Customer();
-		customer1.setId(1);
+		customer1.setId(2);
 		customer1.setFirstName("oracle_first_name");
 		customer1.setLastName("oracle_last_name");
 		customer1.setEmail("oracle@oracle.com");
