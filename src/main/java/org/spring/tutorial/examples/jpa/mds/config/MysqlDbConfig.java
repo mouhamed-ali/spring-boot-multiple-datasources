@@ -12,6 +12,7 @@ import org.springframework.orm.jpa.JpaTransactionManager;
 import org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean;
 import org.springframework.transaction.PlatformTransactionManager;
 import org.springframework.transaction.annotation.EnableTransactionManagement;
+
 import javax.persistence.EntityManagerFactory;
 import javax.sql.DataSource;
 import java.util.HashMap;
@@ -20,12 +21,12 @@ import java.util.Map;
 @Configuration
 @EnableTransactionManagement
 @EnableJpaRepositories(
-        basePackages = { "org.spring.tutorial.examples.jpa.mds.repository.oracle" }
+        basePackages = {"org.spring.tutorial.examples.jpa.mds.repository.mysql"}
 )
 /*
  * in this class we gonna configure the mysql to use the default factory 'entityManagerFactory'
  */
-public class OracleDbConfig {
+public class MysqlDbConfig {
 
     @Primary
     /*
@@ -37,9 +38,9 @@ public class OracleDbConfig {
     /*
      * the bean name is dataSource -> the method name
      */
-    @ConfigurationProperties(prefix = "oracle.datasource")
+    @ConfigurationProperties(prefix = "mysql.datasource")
     /*
-     * the Oracle properties
+     * the Mysql properties
      */
     public DataSource dataSource() {
         return DataSourceBuilder.create().build();
@@ -50,16 +51,17 @@ public class OracleDbConfig {
     public LocalContainerEntityManagerFactoryBean entityManagerFactory(EntityManagerFactoryBuilder builder) {
 
         Map<String,String> hibernateProperties = new HashMap<>();
-        hibernateProperties.put("hibernate.hbm2ddl.auto","create-drop");
-        hibernateProperties.put("hibernate.dialect","org.hibernate.dialect.Oracle10gDialect");
-        hibernateProperties.put("hibernate.show_sql","true");
-        hibernateProperties.put("hibernate.format_sql","true");
+        hibernateProperties.put("hibernate.hbm2ddl.auto", "create-drop");
+        hibernateProperties.put("hibernate.dialect", "org.hibernate.dialect.MySQLDialect");
+        hibernateProperties.put("hibernate.show_sql", "true");
+        hibernateProperties.put("hibernate.format_sql", "true");
+        hibernateProperties.put("hibernate.hbm2ddl.import_files", "initial-db-mysql.sql");
 
         return builder
                 .dataSource(dataSource())
-                .packages("org.spring.tutorial.examples.jpa.mds.entity.oracle")
+                .packages("org.spring.tutorial.examples.jpa.mds.entity.mysql")
                 .properties(hibernateProperties)
-                .persistenceUnit("oraclePU")
+                .persistenceUnit("mysqlPU")
                 .build();
     }
 

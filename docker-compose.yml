@@ -1,0 +1,71 @@
+version: "3.3"
+
+services:
+  spring-app:
+    container_name: spring-app
+    build:
+      dockerfile: Dockerfile.dev
+      context: .
+    ports:
+      - 8080:8080
+    environment:
+      MYSQL_HOST: mysql
+      POSTGRES_HOST: postgres
+    depends_on:
+      - mysql
+      - postgres
+
+  mysql:
+    container_name: mysql
+    image: mysql:5.6
+    restart: unless-stopped
+    environment:
+      MYSQL_DATABASE: db
+      MYSQL_USER: user
+      MYSQL_PASSWORD: password
+      MYSQL_ROOT_PASSWORD: root
+    volumes:
+      - mysql-data:/var/lib/mysql
+
+  adminer:
+    container_name: adminer
+    image: adminer
+    restart: unless-stopped
+    ports:
+      - 8000:8080
+    depends_on:
+      - mysql
+
+  postgres:
+    container_name: postgres
+    image: postgres:9.6.9
+    restart: unless-stopped
+    environment:
+      POSTGRES_USER: admin
+      POSTGRES_PASSWORD: password
+      POSTGRES_DB: db
+      PGDATA: /data/postgres
+    volumes:
+      - postgres-volume:/data/postgres
+    command: ["postgres", "-c", "listen_addresses=*"]
+    # as we are on a dev platform we will accept connections from all hosts. make sure to configure you trust pool connections in production
+
+  pg-admin:
+    image: dpage/pgadmin4
+    container_name: pg-admin
+    restart: unless-stopped
+    environment:
+      PGADMIN_DEFAULT_EMAIL: admin
+      PGADMIN_DEFAULT_PASSWORD: password
+    ports:
+      - 9000:80
+    volumes:
+      - pgadmin-volume:/root/.pgadmin
+    depends_on:
+      - postgres
+
+volumes:
+  postgres-volume:
+  pgadmin-volume:
+  mysql-data:
+

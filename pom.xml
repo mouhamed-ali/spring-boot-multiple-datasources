@@ -4,18 +4,17 @@
 	<modelVersion>4.0.0</modelVersion>
 
 	<groupId>org.spring.tutorial</groupId>
-	<artifactId>multiple-ds-ehcache</artifactId>
+	<artifactId>spring-boot-multiple-datasources</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
 	<packaging>jar</packaging>
 
-	<name>multiple-ds-ehcache</name>
-	<description>Demo project for Spring Boot</description>
+	<name>spring-boot-multiple-datasources</name>
 
 	<parent>
 		<groupId>org.springframework.boot</groupId>
 		<artifactId>spring-boot-starter-parent</artifactId>
 		<version>1.5.10.RELEASE</version>
-		<relativePath/> <!-- lookup parent from repository -->
+		<relativePath/>
 	</parent>
 
 	<properties>
@@ -27,30 +26,32 @@
 	<dependencies>
 		<dependency>
 			<groupId>org.springframework.boot</groupId>
+			<artifactId>spring-boot-starter-web</artifactId>
+		</dependency>
+		<dependency>
+			<groupId>org.springframework.boot</groupId>
 			<artifactId>spring-boot-starter-data-jpa</artifactId>
 		</dependency>
-
 		<dependency>
 			<groupId>org.springframework.boot</groupId>
 			<artifactId>spring-boot-starter-test</artifactId>
 			<scope>test</scope>
 		</dependency>
-
-		<!-- oracle jdbc driver -->
 		<dependency>
-			<groupId>com.oracle.jdbc</groupId>
-			<artifactId>ojdbc8</artifactId>
-			<version>12.2.0.1</version>
+			<groupId>mysql</groupId>
+			<artifactId>mysql-connector-java</artifactId>
+			<scope>runtime</scope>
 		</dependency>
-
 		<dependency>
-			<groupId>postgresql</groupId>
+			<groupId>org.postgresql</groupId>
 			<artifactId>postgresql</artifactId>
-			<version>9.1-901-1.jdbc4</version>
+			<version>9.4-1206-jdbc42</version>
+			<scope>runtime</scope>
 		</dependency>
 	</dependencies>
 
 	<build>
+		<finalName>spring-boot-multiple-ds</finalName>
 		<plugins>
 			<plugin>
 				<groupId>org.springframework.boot</groupId>
@@ -58,6 +59,4 @@
 			</plugin>
 		</plugins>
 	</build>
-
-
 </project>
