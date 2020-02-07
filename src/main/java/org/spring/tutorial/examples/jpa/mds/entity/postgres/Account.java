@@ -1,11 +1,8 @@
 package org.spring.tutorial.examples.jpa.mds.entity.postgres;
 
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.Id;
-import javax.persistence.ManyToOne;
-import javax.persistence.FetchType;
-import javax.persistence.JoinColumn;
+import com.fasterxml.jackson.annotation.JsonIgnore;
+
+import javax.persistence.*;
 
 @Entity
 public class Account {
@@ -21,9 +18,9 @@ public class Account {
     @Column(name = "date_opened")
     private String dateOpened;
 
-    @ManyToOne(fetch=FetchType.LAZY)
+    @JsonIgnore
+    @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name="customer_id")
-//    @ForeignKey(name="customer_id_FK")
     private Customer customer;
 
     public Double getBalance() {

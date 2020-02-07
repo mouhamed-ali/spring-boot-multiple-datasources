@@ -29,14 +29,14 @@ public class RetrieveDataImpl implements RetrieveData {
 
     @Transactional("transactionManager")
     @Override
-    public void saveOracleCustomers(List<Customer> customers) {
+    public void saveMysqlCustomers(List<Customer> customers) {
 
         mysqlCustomerRepository.save(customers);
     }
 
     @Transactional("transactionManager")
     @Override
-    public void saveOracleCustomer(Customer customer) {
+    public void saveMysqlCustomer(Customer customer) {
 
         mysqlCustomerRepository.save(customer);
     }

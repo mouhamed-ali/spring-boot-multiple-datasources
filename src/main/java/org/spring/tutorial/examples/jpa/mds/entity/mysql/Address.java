@@ -1,5 +1,6 @@
 package org.spring.tutorial.examples.jpa.mds.entity.mysql;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import org.spring.tutorial.examples.jpa.mds.entity.AbstractCustomer;
 
 import javax.persistence.*;
@@ -14,7 +15,8 @@ public class Address {
     private String street;
     private String country;
 
-    @OneToOne(fetch=FetchType.LAZY, mappedBy="address")
+    @JsonIgnore
+    @OneToOne(fetch = FetchType.LAZY, mappedBy = "address")
     private Customer customer;
 
     /*
